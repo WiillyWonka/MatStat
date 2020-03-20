@@ -1,0 +1,100 @@
+%% -*- coding: utf-8 -*-
+\documentclass[12pt,a4paper]{scrartcl} 
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage{misccorr}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+
+    Санкт-Петербургский политехнический университет Петра Великого
+
+    \vspace{0.25cm}
+    
+    Институт прикладной математики и механики
+    
+    Кафедра «Прикладная математика»
+    \vfill
+
+	\vspace{0.25cm}
+	    Отчёт\\
+	по лабораторной работе №1\\
+	по дисциплине\\
+	«Математическая статистика»
+
+  \bigskip
+
+\end{center}
+\vfill
+
+\newlength{\ML}
+\settowidth{\ML}{«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}}}
+\hfill\begin{minipage}{0.4\textwidth}
+  Выполнил студент\\ В.\,А.~Рыженко\\
+\end{minipage}%
+\bigskip
+
+\hfill\begin{minipage}{0.4\textwidth}
+  Проверил:\\
+к.ф.-м.н., доцент\\
+Баженов Александр Николаевич\\
+\end{minipage}%
+\vfill
+
+\begin{center}
+  Санкт-Петербург, 2020 г.
+\end{center}
+\end{titlepage}
+
+\section{Постановка задачи}
+\label{sec:intro}
+ 
+Для 5 распределений:
+\begin{itemize}
+ \item Нормальное распределение N(x, 0, 1)
+ \item Распределение Коши C(x, 0, 1)
+ \item Распределение Лапласа L(x, 0, $\frac{1}{\sqrt2}$)
+ \item Постановка задач исследованияРаспределение Пуассона P(k, 10)
+ \item Равномерное распределение U(x, $-\sqrt{3}, \sqrt{3}$) 
+\end{itemize}
+ 
+Сгенерировать выборки размером 10, 50 и 1000 элементов.
+Построить на одном рисунке гистограмму и график плотности распределения.
+
+\section {Реализация}
+Лабораторная работа выполнена с помощью встроенных средств языка программирования Python в среде разработки Jupyter Notebook. Исходный код лабораторной
+работы приведён в приложении.
+ 
+\section{Результаты}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{Normal.png}
+  \caption{Нормальное распределение}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{Cauchy.png}
+  \caption{Распределение Коши}
+\end{figure}
+\begin{figure}
+\centering
+  \includegraphics[width=0.6\textwidth]{Laplace.png}
+  \caption{Распределение Лапласа}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{Poisson.png}
+  \caption{Распределение Пуассона}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{Uniform.png}
+  \caption{Равномерное распределение}
+\end{figure}
+
+\section{Обсуждение}
+Из графиков видна чёткая зависимость, увеличение выборки увеличивает точность апроксимации исходного распределения
+\end{document}
