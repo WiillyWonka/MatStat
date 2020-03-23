@@ -6,6 +6,7 @@
 \usepackage{misccorr}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{float}
 \begin{document}
 \begin{titlepage}
   \begin{center}
@@ -49,6 +50,10 @@
 \end{center}
 \end{titlepage}
 
+\tableofcontents
+\listoffigures
+\newpage
+
 \section{Постановка задачи}
 \label{sec:intro}
  
@@ -64,37 +69,85 @@
 Сгенерировать выборки размером 10, 50 и 1000 элементов.
 Построить на одном рисунке гистограмму и график плотности распределения.
 
+\section{Распределения}
+
+\begin{itemize}
+\begin{item}
+Нормальное распределение
+\begin{equation}\label{eq:Normal}
+\centering
+ N(x, 0, 1) = \frac{1}{\sqrt{2\pi} } e^{-\frac{x^2}2}
+\end{equation}
+\end{item}
+
+\begin{item}
+Распределение Коши
+\begin{equation}\label{eq:Cauchy}
+\centering
+ C(x, 0, 1) = \frac{1}{\pi} \frac{1}{x^2 + 1}
+\end{equation}
+\end{item}
+
+\begin{item}
+Распределение Лапласа
+\begin{equation}\label{eq:Laplace}
+\centering
+L(x, 0, \frac{1}{\sqrt2}) = \frac{1}{\sqrt{2} } e^{\sqrt2|x|}
+\end{equation}
+\end{item}
+
+\begin{item}
+Распределение Пуассона
+\begin{equation}\label{eq:Poisson}
+\centering
+P(k, 10) = \frac{10^k}{k! } e^{-10}
+\end{equation}
+\end{item}
+
+\begin{item}
+Равномерное распределение
+\begin{equation}\label{eq:Uniform}
+\centering
+U(x, -\sqrt{3}, \sqrt{3})  = 
+\begin{cases}
+\frac{1}{2\sqrt3}, &\mbox{при } |x| \leq \sqrt3 \\ 0 , &\mbox{при } |x| \textgreater \sqrt3
+\end{cases}
+\end{equation}
+\end{item}
+\end{itemize}
+
 \section {Реализация}
 Лабораторная работа выполнена с помощью встроенных средств языка программирования Python в среде разработки Jupyter Notebook. Исходный код лабораторной
 работы приведён в приложении.
  
 \section{Результаты}
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{Normal.png}
-  \caption{Нормальное распределение}
+  \includegraphics[width=0.8\textwidth]{Normal.png}
+  \caption{Нормальное распределение ~\eqref{eq:Normal}}
+ 
 \end{figure}
-\begin{figure}
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{Cauchy.png}
-  \caption{Распределение Коши}
+  \includegraphics[width=0.8\textwidth]{Cauchy.png}
+  \caption{Распределение Коши ~\eqref{eq:Cauchy}}
 \end{figure}
-\begin{figure}
+\begin{figure}[H]
 \centering
-  \includegraphics[width=0.6\textwidth]{Laplace.png}
-  \caption{Распределение Лапласа}
+  \includegraphics[width=0.8\textwidth]{Laplace.png}
+  \caption{Распределение Лапласа ~\eqref{eq:Laplace}}
 \end{figure}
-\begin{figure}
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{Poisson.png}
-  \caption{Распределение Пуассона}
+  \includegraphics[width=0.8\textwidth]{Poisson.png}
+  \caption{Распределение Пуассона ~\eqref{eq:Poisson}}
 \end{figure}
-\begin{figure}
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{Uniform.png}
-  \caption{Равномерное распределение}
+  \includegraphics[width=0.8\textwidth]{Uniform.png}
+  \caption{Равномерное распределение ~\eqref{eq:Uniform}}
 \end{figure}
 
 \section{Обсуждение}
-Из графиков видна чёткая зависимость, увеличение выборки увеличивает точность апроксимации исходного распределения
+Из графиков видна чёткая зависимость, увеличение выборки увеличивает точность аппроксимации исходного распределения для всех распределений кроме Коши~\eqref{eq:Cauchy}.
 \end{document}
