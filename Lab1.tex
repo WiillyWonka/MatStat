@@ -7,6 +7,14 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{float}
+
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks,
+  pdftitle={The title of your document},
+  pdfauthor={Your name},
+  allcolors=[RGB]{010 090 200}}
+
 \begin{document}
 \begin{titlepage}
   \begin{center}
@@ -55,7 +63,6 @@
 \newpage
 
 \section{Постановка задачи}
-\label{sec:intro}
  
 Для 5 распределений:
 \begin{itemize}
@@ -150,4 +157,7 @@ U(x, -\sqrt{3}, \sqrt{3})  =
 
 \section{Обсуждение}
 Из графиков видна чёткая зависимость, увеличение выборки увеличивает точность аппроксимации исходного распределения для всех распределений кроме Коши~\eqref{eq:Cauchy}.
+
+\section{Приложения}
+Репозиторий на GitHub с релизацией: \href{https://github.com/WiillyWonka/MatStat}{github.com}.
 \end{document}
