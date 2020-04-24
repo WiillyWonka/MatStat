@@ -51,6 +51,16 @@ def generator(distr, n):
 
     return sample
 
+def printLatexTable(distr, n, meanList, medList, Z_RList, Z_QList, Z_trList):
+    print("{distr} n = {n} & & & & &  \\\\ \hline \n \
+        & $\overline x$& $med x$& $z_R $ & $z_Q $  &  $z_{{tr}}$  \\\\ \hline \n \
+        $E(z)$ & {emean:.5f} & {emed:.5f} & {ez_R:.5f} & {ez_Q:.5f} & {ez_tr:.5f} \\\\ \hline \n \
+        $D(z)$ & {dmean:.5f} & {dmed:.5f} & {dz_R:.5f} & {dz_Q:.5f} & {dz_tr:.5f} \\\\ \hline \n".format(
+            distr=distr, n=n, emean=mean(meanList), emed=mean(medList), ez_R=mean(Z_RList), ez_Q=mean(Z_QList), ez_tr=mean(Z_trList),
+            dmean=D(meanList), dmed=D(medList), dz_R=D(Z_RList), dz_Q=D(Z_QList), dz_tr=D(Z_trList)
+        ))
+
+
 def custom_print(value, X):
     print(value)
     print("E:" + str(mean(X)))
@@ -66,7 +76,7 @@ if __name__ == "__main__":
     Z_QList = []
     Z_trList = []
 
-    distr = "Cauchy"
+    distr = "Uniform"
     print("Distribution: " + str(distr))
     for n in sizes:
         for i in range(1000):
@@ -80,10 +90,12 @@ if __name__ == "__main__":
             Z_trList.append(Z_tr(sample))
         
         
-        print("n: " + str(n))
+        printLatexTable(distr, n, meanList, medList, Z_RList, Z_QList, Z_trList)
+
+        '''print("n: " + str(n))
         custom_print("Mean", meanList)
         custom_print("Med", medList)
         custom_print("Z_R", Z_RList)
         custom_print("Z_Q", Z_QList)
-        custom_print("Z_tr", Z_trList)
+        custom_print("Z_tr", Z_trList)'''
 
