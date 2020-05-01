@@ -30,7 +30,7 @@
 
 	\vspace{0.25cm}
 	    Отчёт\\
-	по лабораторной работе №1\\
+	по лабораторной работе №2\\
 	по дисциплине\\
 	«Математическая статистика»
 
@@ -212,23 +212,25 @@ D = \frac{1}{n} \sum_{i=1}^{n} x_i - \overline x
 
 \section {Результаты}
 
+\subsection{Таблицы значений}
+
 \begin{table}[H]
   \centering
   \begin{tabular}{ | c | c | c | c | c | c | c | }
 	\hline
 	Normal n = 10 & & & & &  \\ \hline
 	& $\overline x$~\eqref{eq:mean} & $med x$~\eqref{eq:mean}& $z_R $~\eqref{eq:semisum} & $z_Q $~\eqref{eq:semiquartile}  &  $z_{tr}$~\eqref{eq:trim}  \\ \hline
-	$E(z) ~\eqref{eq:expectation}$ & -0.01240 & -0.02489 & -0.00474 & -0.01261 & -0.44611 \\ \hline
+	$E(z) ~\eqref{eq:expectation}$ & -0.01 & 0.0 & 0.0 & 0.0 & -0.4 \\ \hline
 	$D(z) ~\eqref{eq:dispertion}$ & 0.09935 & 0.13874 & 0.18181 & 0.11633 & 0.19166 \\ \hline
 	
 	Normal n = 100 & & & & &  \\ \hline
 	& $\overline x$ & $med x$& $z_R $& $z_Q $&  $z_{tr}$\\ \hline
-	$E(z)$ & -0.00618 & -0.00857 & -0.00707 & 0.00268 & -0.53702 \\ \hline
+	$E(z)$ & 0.01 & -0.01 & 0.0 & 0.00 & -0.53 \\ \hline
 	$D(z)$ & 0.05471 & 0.07758 & 0.13405 & 0.06471 & 0.11674 \\ \hline
 	
 	Normal n = 1000 & & & & &  \\ \hline
 	& $\overline x$ & $med x$& $z_R $& $z_Q $&  $z_{tr}$\\ \hline
-	$E(z)$ & -0.00409 & -0.00551 & -0.00393 & 0.00217 &-0.56976 \\ \hline
+	$E(z)$ & 0.00 & -0.01 & 0.0 & 0.01 &-0.57 \\ \hline
 	$D(z)$ & 0.03683 & 0.05231 & 0.11162 & 0.04357 & 0.08085 \\ \hline
 	\end{tabular}
   \label{table:normal_table}
@@ -242,17 +244,17 @@ D = \frac{1}{n} \sum_{i=1}^{n} x_i - \overline x
 	\hline
 	Cauchy n = 10 & & & & &  \\ \hline
          & $\overline x$& $med x$& $z_R $ & $z_Q $  &  $z_{tr}$  \\ \hline
-         $E(z)$ & 4.65358 & 0.02889 & 23.04936 & 0.03492 & -4.33522 \\ \hline
+         $E(z)$ & 4 & 0 & 23 & 0 & -4 \\ \hline
          $D(z)$ & 15908.09147 & 0.43148 & 397531.77972 & 1.26249 & 523.04326 \\ \hline
 
 Cauchy n = 100 & & & & &  \\ \hline
          & $\overline x$& $med x$& $z_R $ & $z_Q $  &  $z_{tr}$  \\ \hline
-         $E(z)$ & 1.72418 & 0.01434 & -18.42564 & 0.03585 & -7.08401 \\ \hline
+         $E(z)$ & 1 & 0.0 & -18 & 0.0 & -7 \\ \hline
          $D(z)$ & 8637.35792 & 0.22896 & 1880864.30928 & 0.65602 & 2509.25432 \\ \hline
 
 Cauchy n = 1000 & & & & &  \\ \hline
          & $\overline x$& $med x$& $z_R $ & $z_Q $  &  $z_{tr}$  \\ \hline
-         $E(z)$ & 1.55612 & 0.01011 & 190.09045 & 0.02555 & -6.98385 \\ \hline
+         $E(z)$ & 1& 0.0 & 190 & 0.0 & -6 \\ \hline
          $D(z)$ & 6106.00336 & 0.15343 & 87773120.69259 & 0.43918 & 1712.09914 \\ \hline
 	\end{tabular}
   \label{table:cauchy_table}
@@ -265,17 +267,17 @@ Cauchy n = 1000 & & & & &  \\ \hline
 	\hline
 Laplace n = 10 & & & & &  \\ \hline
          & $\overline x$& $med x$& $z_R $ & $z_Q $  &  $z_{tr}$  \\ \hline
-         $E(z)$ & 0.00358 & -0.00151 & 0.02326 & 0.00012 & -0.40006 \\ \hline
+         $E(z)$ & 0.0 & 0.00 & 0.0 & 0.0 & -0.4 \\ \hline
          $D(z)$ & 0.10735 & 0.08220 & 0.41080 & 0.11063 & 0.18386 \\ \hline
 
 Laplace n = 100 & & & & &  \\ \hline
          & $\overline x$& $med x$& $z_R $ & $z_Q $  &  $z_{tr}$  \\ \hline
-         $E(z)$ & 0.00153 & -0.00143 & 0.04186 & 0.00484 & -0.49776 \\ \hline
+         $E(z)$ & 0.00 & 0.00 & 0.0 & 0.00 & -0.5 \\ \hline
          $D(z)$ & 0.05890 & 0.04395 & 0.40008 & 0.06062 & 0.11308 \\ \hline
 
 Laplace n = 1000 & & & & &  \\ \hline
          & $\overline x$& $med x$& $z_R $ & $z_Q $  &  $z_{tr}$  \\ \hline
-         $E(z)$ & 0.00126 & -0.00117 & 0.02586 & 0.00361 & -0.53088 \\ \hline
+         $E(z)$ & 0.0 & 0.0 & 0.0 & 0.00 & -0.53 \\ \hline
          $D(z)$ & 0.03961 & 0.02948 & 0.40734 & 0.04075 & 0.07833 \\ \hline
 	\end{tabular}
   \label{table:laplace_table}
@@ -288,17 +290,17 @@ Laplace n = 1000 & & & & &  \\ \hline
 	\hline
 Poisson n = 10 & & & & &  \\ \hline
          & $\overline x$& $med x$& $z_R $ & $z_Q $  &  $z_{tr}$  \\ \hline
-         $E(z)$ & 10.03390 & 9.87850 & 10.35950 & 9.96100 & 11.98083 \\ \hline
+         $E(z)$ & 10.0 & 10 & 10 & 10 & 12 \\ \hline
          $D(z)$ & 0.94092 & 1.30249 & 1.90001 & 1.19398 & 1.61149 \\ \hline
 
 Poisson n = 100 & & & & &  \\ \hline
          & $\overline x$& $med x$& $z_R $ & $z_Q $  &  $z_{tr}$  \\ \hline
-         $E(z)$ & 10.00905 & 9.85175 & 10.64650 & 9.95325 & 12.45501 \\ \hline
+         $E(z)$ & 10.0 & 9.9 & 11 & 10.0 & 12 \\ \hline
          $D(z)$ & 0.51966 & 0.74990 & 1.51329 & 0.67369 & 1.14114 \\ \hline
 
 Poisson n = 1000 & & & & &  \\ \hline
          & $\overline x$& $med x$& $z_R $ & $z_Q $  &  $z_{tr}$  \\ \hline
-         $E(z)$ & 10.00531 & 9.89917 & 10.97383 & 9.96717 & 12.61537 \\ \hline
+         $E(z)$ & 10.0 & 9.9 & 11 & 10.0 & 12.6 \\ \hline
          $D(z)$ & 0.34978 & 0.50642 & 1.43907 & 0.45051 & 0.81966 \\ \hline
 	\end{tabular}
   \label{table:poisson_table}
@@ -311,25 +313,60 @@ Poisson n = 1000 & & & & &  \\ \hline
 	\hline
 Uniform n = 10 & & & & &  \\ \hline
          & $\overline x$& $med x$& $z_R $ & $z_Q $  &  $z_{tr}$  \\ \hline
-         $E(z)$ & 0.00634 & 0.00643 & 0.00743 & 0.00912 & -0.41120 \\ \hline
+         $E(z)$ & 0.0 & 0.0 & 0.01 & 0.0 & -0.4 \\ \hline
          $D(z)$ & 0.10099 & 0.23114 & 0.04599 & 0.13631 & 0.22124 \\ \hline
 
 Uniform n = 100 & & & & &  \\ \hline
          & $\overline x$& $med x$& $z_R $ & $z_Q $  &  $z_{tr}$  \\ \hline
-         $E(z)$ & -0.00131 & -0.00276 & 0.00308 & 0.00859 & -0.53424 \\ \hline
+         $E(z)$ & 0.00 & 0.0 & 0.00 & 0.01 & -0.5 \\ \hline
          $D(z)$ & 0.05538 & 0.13012 & 0.02329 & 0.07517 & 0.13984 \\ \hline
 
 Uniform n = 1000 & & & & &  \\ \hline
          & $\overline x$& $med x$& $z_R $ & $z_Q $  &  $z_{tr}$  \\ \hline
-         $E(z)$ & -0.00070 & -0.00120 & 0.00207 & 0.00667 & -0.57210 \\ \hline
+         $E(z)$ & 0.00 & 0.00 & 0.00 & 0.01 & -0.57 \\ \hline
          $D(z)$ & 0.03726 & 0.08778 & 0.01553 & 0.05062 & 0.09711 \\ \hline
 	\end{tabular}
   \label{table:uniform_table}
 \caption{Равномерное распределение}
 \end{table}
 
+\subsection{Упорядоченные характеристики положения}
+\begin{enumerate}
+\item Нормальное распределение:
+\begin{equation}
+\centering
+z_{tr} \textless med \, x \textless \overline x= z_R \textless z_Q
+\end{equation}
+
+\item Распределение Коши:
+\begin{equation}
+\centering
+z_{tr} \textless med \, x \textless \overline x = z_Q \textless z_R
+\end{equation}
+
+\item Распределение Лапласа:
+\begin{equation}
+\centering
+z_{tr} \textless \overline x = med \, x = z_R = z_Q
+\end{equation}
+
+\item Распределение Пуассона:
+\begin{equation}
+\centering
+med \, x \textless \overline x = z_Q \textless z_R \textless z_{tr}
+\end{equation}
+
+\item Равномерное распределение:
+\begin{equation}
+\centering
+z_{tr} \textless \overline x = med \, x = z_R \textless z_Q
+\end{equation}
+\end{enumerate}
+
+
+
 \section{Обсуждение}
-Из полученных данных видно, что среднее~\eqref{eq:expectation} всех характеристик стремится к теоретическому, а оценка дисперсии~\eqref{eq:dispertion} к нулю при увеличении размера выборки. В случае распределения Коши~\eqref{eq:Cauchy} это верно только для характеристик положения.
+Из полученных данных видно, что среднее~\eqref{eq:expectation} всех характеристик стремится к теоретическому, а оценка дисперсии~\eqref{eq:dispertion} к нулю при увеличении размера выборки. В случае распределения Коши~\eqref{eq:Cauchy} это верно только для медианы~\eqref{eq:med}.
 
 \section{Приложения}
 Репозиторий на GitHub с релизацией: \href{https://github.com/WiillyWonka/MatStat}{github.com}.
