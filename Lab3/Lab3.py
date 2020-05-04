@@ -7,6 +7,10 @@ from tabulate import tabulate
 def mean(X):
     return sum(X) / len(X)
 
+def D(X):
+    sqrX = [i**2 for i in X]
+    return mean(sqrX) - mean(X)**2
+
 def generator(distr, n):
     if (distr == "Normal"):
         sample = stats.norm.rvs(0, 1, n)
@@ -43,10 +47,10 @@ if __name__ == '__main__':
         plt.boxplot((generator(distr, sizes[0]), generator(distr, sizes[1])), whiskerprops=line_props, boxprops=bbox_props, flierprops=flier_props, labels=["n = 20", "n = 100"])
         plt.ylabel("X")
         plt.title(distr)
-        plt.savefig(distr + '.png', format='png')
+        #plt.savefig(distr + '.png', format='png')
         #plt.show()
 
-        headers = ["distribution name", "proportion of ejections"]
+        headers = ["distribution name", "proportion of ejections", "D"]
         for size in sizes:
             rows = list()
             emissions_list = list()
@@ -62,6 +66,6 @@ if __name__ == '__main__':
 
                 emissions_list.append(count / size)
             
-            rows.append([str(distr) + ", n = " + str(size),  mean(emissions_list)])
+            rows.append([str(distr) + ", n = " + str(size),  mean(emissions_list), D(emissions_list)])
             print(tabulate(rows, headers, tablefmt="latex"))
 
