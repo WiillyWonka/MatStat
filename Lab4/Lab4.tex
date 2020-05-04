@@ -1,0 +1,312 @@
+%% -*- coding: utf-8 -*-
+\documentclass[12pt,a4paper]{scrartcl} 
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage{misccorr}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks,
+  pdftitle={The title of your document},
+  pdfauthor={Your name},
+  allcolors=[RGB]{000 000 000}}
+
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+
+    Санкт-Петербургский политехнический университет Петра Великого
+
+    \vspace{0.25cm}
+    
+    Институт прикладной математики и механики
+    
+    Кафедра «Прикладная математика»
+    \vfill
+
+	\vspace{0.25cm}
+	    Отчёт\\
+	по лабораторной работе №4\\
+	по дисциплине\\
+	«Математическая статистика»
+
+  \bigskip
+
+\end{center}
+\vfill
+
+\newlength{\ML}
+\settowidth{\ML}{«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}}}
+\hfill\begin{minipage}{0.4\textwidth}
+  Выполнил студент\\ В.\,А.~Рыженко\\
+\end{minipage}%
+\bigskip
+
+\hfill\begin{minipage}{0.4\textwidth}
+  Проверил:\\
+к.ф.-м.н., доцент\\
+Баженов Александр Николаевич\\
+\end{minipage}%
+\vfill
+
+\begin{center}
+  Санкт-Петербург, 2020 г.
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+\listoffigures
+\newpage
+
+\section{Постановка задачи}
+ 
+Для 5 распределений:
+\begin{itemize}
+ \item Нормальное распределение N(x, 0, 1)
+ \item Распределение Коши C(x, 0, 1)
+ \item Распределение Лапласа L(x, 0, $\frac{1}{\sqrt2}$)
+ \item Постановка задач исследованияРаспределение Пуассона P(k, 10)
+ \item Равномерное распределение U(x, $-\sqrt{3}, \sqrt{3}$) 
+\end{itemize}
+ 
+Сгенерировать выборки размером 20, 60 и 100 элементов.
+Построить на них эмпирические функции распределения и ядерные
+оценки плотности распределения на отрезке [-4; 4] для непрерывных
+распределений и на отрезке [6; 14] для распределения Пуассона.
+
+\section{Теория}
+
+\subsection{Распределения}
+
+\begin{itemize}
+\begin{item}
+Нормальное распределение
+\begin{equation}\label{eq:Normal}
+\centering
+ N(x, 0, 1) = \frac{1}{\sqrt{2\pi} } e^{-\frac{x^2}2}
+\end{equation}
+\end{item}
+
+\begin{item}
+Распределение Коши
+\begin{equation}\label{eq:Cauchy}
+\centering
+ C(x, 0, 1) = \frac{1}{\pi} \frac{1}{x^2 + 1}
+\end{equation}
+\end{item}
+
+\begin{item}
+Распределение Лапласа
+\begin{equation}\label{eq:Laplace}
+\centering
+L(x, 0, \frac{1}{\sqrt2}) = \frac{1}{\sqrt{2} } e^{\sqrt2|x|}
+\end{equation}
+\end{item}
+
+\begin{item}
+Распределение Пуассона
+\begin{equation}\label{eq:Poisson}
+\centering
+P(k, 10) = \frac{10^k}{k! } e^{-10}
+\end{equation}
+\end{item}
+
+\begin{item}
+Равномерное распределение
+\begin{equation}\label{eq:Uniform}
+\centering
+U(x, -\sqrt{3}, \sqrt{3})  = 
+\begin{cases}
+\frac{1}{2\sqrt3}, &\mbox{при } |x| \leq \sqrt3 \\ 0 , &\mbox{при } |x| \textgreater \sqrt3
+\end{cases}
+\end{equation}
+\end{item}
+\end{itemize}
+
+\subsection{Эмпирическая функция распределения}
+\subsubsection{Определение}
+
+Эмпирической (выборочной) функцией распределения (э. ф. р.) называется
+относительная частота события $X < x$, полученная по данной выборке:
+
+\begin{equation}\label{eq:EmpDistr}
+\centering
+F_n^*(x) = P^*(X < x).
+\end{equation}
+
+\subsubsection{Описание}
+
+Для получения относительной частоты $P^*(X < x)$ просуммируем в статистическом ряде, построенном по данной выборке, все частоты $n_i$, для которых элементы $z_i$ статистического ряда меньше $x$. Тогда $P^*(X < x) = \frac{1}{n}\sum_{z_i < x} n_i.$
+
+\subsection{Оценки плотности вероятности}
+\subsubsection{Определение}
+
+Оценкой плотности вероятности $f(x)$ называется функция $\hat{f}(x)$, построенная на основе выборки, приближённо равная $f(x)$
+
+\subsubsection{Ядерные оценки}
+
+Представим оценку в виде суммы с числом слагаемых, равным объёму выборки:
+
+\begin{equation}\label{eq:KernelEstimate}
+\centering
+\hat{f}_n(x) = \frac{1}{nh_n}\sum_{i=1}^n K(\frac{x-x_i}{h_n}).
+\end{equation}
+
+Здесь функция $K(u)$, называемая ядерной (ядром), непрерывна и является
+плотностью вероятности, $x_1, ... , x_n$ — элементы выборки, {$h_n$} — любая
+последовательность положительных чисел, обладающая свойствами
+
+\begin{equation}
+\centering
+h_n \underset{n \to \infty}{\longrightarrow} 0;  \, \frac{h_n}{n^{-1}} \underset{n \to \infty}{\longrightarrow} \infty;
+\end{equation}
+
+Гауссово (нормальное) ядро
+
+\begin{equation}
+\centering
+K(u) = \frac{1}{\sqrt{2\pi} } e^{-\frac{u^2}2}
+\end{equation}
+
+Правило Сильвермана
+
+\begin{equation}
+\centering
+h_n = 1.06\hat{\sigma}n^{-1/5},
+\end{equation}
+
+где $\hat{\sigma}$ - выборочное стандартное отклонение.
+
+\section {Реализация}
+Лабораторная работа выполнена с помощью встроенных средств языка программирования Python в среде разработки Visual Code. Исходный код лабораторной работы приведён в приложении.
+ 
+\section{Результаты}
+\subsection{Эмпирическая функция распределения}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Normal.png}
+  \caption{Нормальное распределение ~\eqref{eq:Normal}}
+ 
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Cauchy.png}
+  \caption{Распределение Коши ~\eqref{eq:Cauchy}}
+\end{figure}
+\begin{figure}[H]
+\centering
+  \includegraphics[width=1\textwidth]{Laplace.png}
+  \caption{Распределение Лапласа ~\eqref{eq:Laplace}}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Poisson.png}
+  \caption{Распределение Пуассона ~\eqref{eq:Poisson}}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Uniform.png}
+  \caption{Равномерное распределение ~\eqref{eq:Uniform}}
+\end{figure}
+
+\subsection{Ядерные оценки плотности распределения}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Normalkernel20.png}
+  \caption{Нормальное распределение, n = 20 ~\eqref{eq:Normal}}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Normalkernel60.png}
+  \caption{Нормальное распределение, n = 60}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Normalkernel100.png}
+  \caption{Нормальное распределение, n = 100}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Cauchykernel20.png}
+  \caption{Распределение Коши, n = 20 ~\eqref{eq:Cauchy}}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Cauchykernel60.png}
+  \caption{Распределение Коши, n = 60}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Cauchykernel100.png}
+  \caption{Распределение Коши, n = 100}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=1\textwidth]{Laplacekernel20.png}
+  \caption{Распределение Лапласа, n = 20 ~\eqref{eq:Laplace}}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=1\textwidth]{Laplacekernel60.png}
+  \caption{Распределение Лапласа, n = 60}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=1\textwidth]{Laplacekernel100.png}
+  \caption{Распределение Лапласа, n = 100}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Poissonkernel20.png}
+  \caption{Распределение Пуассона, n = 20 ~\eqref{eq:Poisson}}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Poissonkernel60.png}
+  \caption{Распределение Пуассона, n = 60}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Poissonkernel100.png}
+  \caption{Распределение Пуассона, n = 100}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Uniformkernel20.png}
+  \caption{Равномерное распределение, n = 20 ~\eqref{eq:Uniform}}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Uniformkernel60.png}
+  \caption{Равномерное распределение, n = 60}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Uniformkernel100.png}
+  \caption{Равномерное распределение, n = 100}
+\end{figure}
+
+\section{Обсуждение}
+Из полученных данных видно, что точность аппроксимации эмпирической функцией~\eqref{eq:EmpDistr} распределения увеличивается с увеличением выборки. Для распределения Пуассона~\eqref{eq:Poisson} точность аппроксимации наименьшая. При увеличении размера выборки увеличевается точность аппроксимации плотности распределения для всех распределений кроме распределения Пуассона. Для нормального и равномерного распределения и рапределения Лапласа лучше подходит параметр $h = h_n$. Для рапределения коши и Пуассона лучше подходит параметр $h = \frac{h_n}{2}$
+
+\section{Приложения}
+Репозиторий на GitHub с релизацией: \href{https://github.com/WiillyWonka/MatStat}{github.com}.
+\end{document}
