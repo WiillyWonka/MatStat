@@ -5,7 +5,9 @@ def MNK(X, Y):
     b1 = (np.mean(X * Y) - np.mean(X) * np.mean(Y)) / np.var(X)
     b2 = np.mean(Y) - np.mean(X) * b1
 
-    return b1, b2
+    quality = np.sum(np.abs(Y - b2 - b1 * X))
+
+    return b1, b2, quality
 
 def r_Q(X, Y):
     return np.sum((np.sign(X - np.mean(X)) * np.sign(Y - np.mean(Y)))) / len(X)
@@ -19,7 +21,10 @@ def MAE(X, Y):
     b1 = r_Q(X, Y) * q(Y) / q(X)
     b2 = np.median(Y) - b1 * np.median(X)
 
-    return b1, b2
+    
+    quality = np.sum(np.abs(Y - b2 - b1 * X))
+
+    return b1, b2, quality
     
 
 if __name__ == "__main__":
@@ -27,12 +32,12 @@ if __name__ == "__main__":
     e = np.random.normal(0, 1, size=len(X))
     Y = 2 + 2*X + e
 
-    a1, a2 = MNK(X, Y)
+    a1, a2, quality1 = MNK(X, Y)
 
-    b1, b2 = MAE(X, Y)
+    b1, b2, quality2 = MAE(X, Y)
 
-    print(a1, a2)
-    print(b1, b2)
+    print(a1, a2, quality1)
+    print(b1, b2, quality2)
 
     plt.figure()
     plt.scatter(X, Y, label='Выборка', edgecolor='navy')
@@ -49,12 +54,12 @@ if __name__ == "__main__":
     Y[0] += 10
     Y[-1] -= 10
 
-    a1, a2 = MNK(X, Y)
+    a1, a2, quality1 = MNK(X, Y)
 
-    b1, b2 = MAE(X, Y)
+    b1, b2, quality2 = MAE(X, Y)
 
-    print(a1, a2)
-    print(b1, b2)
+    print(a1, a2, quality1)
+    print(b1, b2, quality2)
 
     plt.figure()
     plt.scatter(X, Y, label='Выборка', edgecolor='navy')
