@@ -36,6 +36,8 @@ def create_table(pearson_array, spearman_array, quadrant_array, mode, mode_array
 
         rows.append(['$E(z)$', np.around(pearson_mean[i], decimals=5), np.around(spearman_mean[i], decimals=5), np.around(quadrant_mean[i], decimals=5)])
 
+        
+
         rows.append(['$E(z^2)$', np.around(pearson_mean_sq[i], decimals=5), np.around(spearman_mean_sq[i], decimals=5), np.around(quadrant_mean_sq[i], decimals=5)])
 
         rows.append(['$D(z)$', np.around(pearson_variance[i], decimals=5), np.around(spearman_variance[i], decimals=5), np.around(quadrant_variance[i], decimals=5)])
@@ -61,7 +63,7 @@ def draw_confidence_ellipse(x, y, ax, n_std=3.0):
 
 
 if __name__ == "__main__":
-    sizes = [20, 60, 100]
+    sizes = [3, 5]
     r = [0.1, 0.5, 0.9]
 
     mean = [0.0, 0.0]
@@ -88,6 +90,8 @@ if __name__ == "__main__":
             draw_confidence_ellipse(x, y, ax[i])
 
         fig.savefig('n=' + str(size))
+
+        #plt.show()
         
         print('n = ' + str(size))
         create_table(pearson_array, spearman_array, quadrant_array, '$\\rho$', r)
@@ -111,4 +115,3 @@ if __name__ == "__main__":
 
     create_table(pearson_array, spearman_array, quadrant_array, 'n', sizes)
 
-    #plt.show()
